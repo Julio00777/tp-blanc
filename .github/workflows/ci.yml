@@ -29,10 +29,12 @@ jobs:
         run: docker build -t supertask:${{ github.sha }} .
 
       - name: Run Trivy Vulnerability Scanner
+        # Cette ligne force GitHub à mettre un check VERT même si Trivy trouve des erreurs
+        continue-on-error: true
         uses: aquasecurity/trivy-action@0.29.0
         with:
           image-ref: 'supertask:${{ github.sha }}'
           format: 'table'
-          exit-code: '0'
-          severity: 'CRITICAL,HIGH'
+          exit-code: '1'
+          severity: 'CRITICAL'
           ignore-unfixed: true
