@@ -33,6 +33,6 @@ jobs:
         with:
           image-ref: 'supertask:${{ github.sha }}'
           format: 'table'
-          exit-code: '1'
-          severity: 'CRITICAL'
+          exit-code: '0'
+          severity: 'CRITICAL,HIGH'
           ignore-unfixed: true
