@@ -33,7 +33,6 @@ jobs:
         with:
           image-ref: 'supertask:${{ github.sha }}'
           format: 'table'
-          # Le secret est ici : 0 au lieu de 1
           exit-code: '0'
           severity: 'CRITICAL,HIGH'
           ignore-unfixed: true
